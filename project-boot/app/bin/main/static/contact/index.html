@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>연락처</title>
+</head>
+<body>
+<h1>연락처</h1>
+<a href="/index.html">돌아가기</a>
+<table id="x-contact-tbl" border=1>
+<thead>
+  <tr>
+    <th>이름</th>
+    <th>이메일</th>
+    <th>전화번호</th>
+    <th>회사</th>
+  </tr>
+</thead>
+<tbody>
+
+</tbody>
+</table>
+<button id="x-create-btn" type="button">새 연락처</button>
+<script type="text/javascript">
+
+var tbody = document.querySelector("#x-contact-tbl tbody");
+
+fetch("/contact/list")
+  .then(function(response) {
+    //console.log(response.json());
+    return response.json();
+  })
+  .then(function(contacts) {
+    console.log(contacts);
+    for (var contact of contacts) {
+      var tr = document.createElement("tr");
+      tr.innerHTML = `<td><a href="view.html?email=${contact.email}">${contact.name}</a></td>
+          <td>${contact.email}</td>
+          <td>${contact.tel}</td>
+          <td>${contact.company}</td>`;
+          //contact/get?name~ 은 서버사이드 랜더링 방식
+      tbody.appendChild(tr);
+    };
+  })
+
+document.querySelector("#x-create-btn").onclick = function() {
+  window.location.href = "form.html"
+};
+
+
+</script>
+</body>
+</html>
