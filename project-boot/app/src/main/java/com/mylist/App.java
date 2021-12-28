@@ -15,7 +15,6 @@ public class App {
 
   @RequestMapping("/hello")
   String hello() {
-    return "Hello project-boot!";
+    return "Hello, My projects!";
   }
-
 }

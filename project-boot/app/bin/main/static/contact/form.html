@@ -1,11 +1,48 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>연락처</title>
-  </head>
-  <body>
-    <h1>새 연락처</h1>
+<head>
+  <meta charset="utf-8">
+  <title>연락처</title>
+</head>
+<body>
 
-  </body>
+<h1>새 연락처</h1>
+
+<form>
+이름*: <input id="x-name" type="text"><br>
+이메일*: <input id="x-email" type="email"><br>
+번호*: <input id="x-tel" type="text"><br>
+회사: <input id="x-company" type="text"><br>
+별표(*) 항목은 필수 입력입니다.<br>
+<button id="x-add-btn" type="button">등록</button>
+<button id="x-cxl-btn" type="button">취소</button>
+</form>
+
+<script type="text/javascript">
+  var xName = document.querySelector("#x-name");
+  var xEmail = document.querySelector("#x-email");
+  var xTel = document.querySelector("#x-tel");
+  var xCompany = document.querySelector("#x-company");
+
+  document.querySelector("#x-add-btn").onclick = function() {
+    if (xName.value == "" || xEmail.value == "" || xTel.value == "") {
+      window.alert("필수 입력 항목을 입력해 주세요.");
+      return;
+    };
+
+    fetch(`/contact/add?name=${xName.value}&email=${xEmail.value}&tel=${xTel.value}&company=${xCompany.value}`)
+      .then(function(response) {
+        return response.text();
+      }).then(function(text) {
+        console.log(text);
+				window.location.href = "index.html"
+      });
+  };
+
+  document.querySelector("#x-cxl-btn").onclick = function() {
+    window.location.href = "index.html"
+  };
+</script>
+
+</body>
 </html>

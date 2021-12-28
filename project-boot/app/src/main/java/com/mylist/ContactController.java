@@ -6,13 +6,22 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ContactController {
 
+  String[] contacts = new String[5];
+  int size = 0;
+
   @GetMapping("/contact/list")
   public Object list() {
-    String[] contacts = {
-        "홍길동, hong@test.com, 010-1111-2222, test",
-        "유관순, hong@test.com, 010-1111-2222, test",
-        "김구, hong@test.com, 010-1111-2222, test"
-    };
-    return contacts;
+    String[] records = new String[size];
+    for (int i = 0; i < size; i++) {
+      records[i] = contacts[i];
+    }
+    return records;
+  }
+
+  @GetMapping("contact/add")
+  public Object add(String name, String email, String tel, String company) {
+    String contact = name + "," + email + "," + tel + "," + company;
+    contacts[size++] = contact;
+    return size;
   }
 }

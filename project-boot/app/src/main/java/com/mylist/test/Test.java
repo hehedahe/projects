@@ -3,34 +3,12 @@ package com.mylist.test;
 public class Test {
   public static void main(String[] args) {
 
-
-
-    int month = 13;
-
-    switch (month) {
-      case 3:
-      case 4:
-      case 5:
-        System.out.println("봄에 태어나셨네요.");
-        break;
-      case 6:
-      case 7:
-      case 8:
-        System.out.println("여름에 태어나셨네요.");
-        break;
-      case 9:
-      case 10:
-      case 11:
-        System.out.println("가을에 태어나셨네요.");
-      case 12:
-      case 1:
-      case 2:
-        System.out.println("겨울에 태어나셨네요.");
-        break;
-
-      default:
-        System.out.println("1~12 사이의 숫자만 입력하셔야 합니다.");
-        break;
+    int[] number = {3, 5, 10, 17, 20};
+    int sum = 0;
+    for (int i = 0; i < number.length; i++) {
+      sum += number[i];
     }
+    System.out.println(sum / number.length);
   }
+
 }

@@ -17,7 +17,6 @@
 		</tr>
 </thead>
 <tbody>
-
 </tbody>
 </table>
 
@@ -35,7 +34,7 @@ fetch("/contact/list")
 		console.log(contact);
 		var values = contact.split(",");
 		var tr = document.createElement("tr")
-		tr.innerHTML = `<td>${values[0]}</td>
+		tr.innerHTML = `<td><a href="view.html?email=${contact[1]}">${values[0]}</a></td>
 		<td>${values[1]}</td>
 		<td>${values[2]}</td>
 		<td>${values[3]}</td>`
