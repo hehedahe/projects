@@ -1,4 +1,4 @@
-package com.mylist.test;
+package com.mylist.method;
 
 public class Prob {
 
@@ -10,31 +10,33 @@ public class Prob {
 
   public void printSeason(int month) {
 
+    String season = "";
+
     switch (month) {
       case 3:
       case 4:
       case 5:
-        System.out.println("봄에 태어나셨네요.");
+        season = "봄";
         break;
       case 6:
       case 7:
       case 8:
-        System.out.println("여름에 태어나셨네요.");
+        season = "여름";
         break;
       case 9:
       case 10:
       case 11:
-        System.out.println("가을에 태어나셨네요.");
+        season = "가을";
       case 12:
       case 1:
       case 2:
-        System.out.println("겨울에 태어나셨네요.");
+        season = "겨울";
         break;
-
       default:
         System.out.println("1~12 사이의 숫자만 입력하셔야 합니다.");
-        break;
+        return;
     }
-  }
 
+    System.out.printf("%s에 태어나셨네요.", season);
+  }
 }

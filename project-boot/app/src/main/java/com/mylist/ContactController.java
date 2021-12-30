@@ -18,10 +18,18 @@ public class ContactController {
     return records;
   }
 
-  @GetMapping("contact/add")
+  @GetMapping("/contact/add")
   public Object add(String name, String email, String tel, String company) {
     String contact = name + "," + email + "," + tel + "," + company;
     contacts[size++] = contact;
     return size;
+  }
+
+  @RestController("/contact/get")
+  public Object get(String email) {
+    for (int i = 0; i < contacts.length; i++) {
+
+
+    }
   }
 }
