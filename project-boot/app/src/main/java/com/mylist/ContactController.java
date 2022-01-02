@@ -25,11 +25,12 @@ public class ContactController {
     return size;
   }
 
-  @RestController("/contact/get")
+  @GetMapping("/contact/get")
   public Object get(String email) {
     for (int i = 0; i < contacts.length; i++) {
 
 
     }
+    return "";
   }
 }

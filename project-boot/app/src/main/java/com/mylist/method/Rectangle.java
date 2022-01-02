@@ -5,8 +5,7 @@ public class Rectangle {
   int width;
   int length;
   String color;
-  int area;
-  int perimeter;
+
   public int getWidth() {
     return width;
   }
@@ -25,18 +24,13 @@ public class Rectangle {
   public void setColor(String color) {
     this.color = color;
   }
-  public int getArea() {
-    return area;
-  }
-  public void setArea(int area) {
-    this.area = area;
-  }
-  public int getPerimiter() {
-    return perimeter;
-  }
-  public void setPerimiter(int perimiter) {
-    this.perimeter = perimiter;
+
+  public int area() {
+    return length * width;
   }
 
+  public int perimeter() {
+    return (length + width) * 2;
+  }
 
 }

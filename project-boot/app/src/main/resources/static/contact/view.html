@@ -20,11 +20,31 @@
 
 <script type="text/javascript">
 
-
 var xName = document.querySelector("#x-name");
 var xEmail = document.querySelector("#x-email");
 var xTel = document.querySelector("#x-tel");
 var xCompany = document.querySelector("#x-company");
+
+console.log(location.href);
+
+var arr = location.href.split("?");
+console.log(arr);
+
+if (arr.length == 1) {
+  alert("요청 형식이 올바르지 않습니다.");
+  throw "url 형식 오류!";
+}
+
+var values = arr[1].split("&");
+var email = null;
+for (var value of values) {
+  if (value.startsWith("email=")) {
+    email = value.split("=")[1];
+  }
+}
+
+console.log(email);
+
 
 document.querySelector("#x-update-btn").onclick = function() {
   if (xName.value == "" || xEmail.value == "" || xTel.value == "") {
@@ -44,6 +64,7 @@ document.querySelector("#x-update-btn").onclick = function() {
 document.querySelector("#x-cxl-btn").onclick = function() {
   window.location.href = "index.html"
 };
+
 </script>
 
 </body>
