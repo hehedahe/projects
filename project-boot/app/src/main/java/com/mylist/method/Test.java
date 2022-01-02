@@ -1,31 +1,20 @@
 package com.mylist.method;
 
+import java.util.Scanner;
 
 public class Test {
 
   public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+    int a = sc.nextInt();
+    int b = sc.nextInt();
+    int v = sc.nextInt();
 
-    int[] values = {10, 4, 53, 63, 17, 37 ,52 ,16 ,33 ,65};
-
-    int sum = 0;
-    int value = 0;
-
-    for (int i = 0; i < values.length; i++) {
-      sum += values[i];
-    }
-    int avg = sum / values.length;
-
-    for (int j = 0; j < values.length; j++) {
-      int gapA = Math.abs(avg - values[j]);
-      for (int k = j+1; k < values.length; k++) {
-
-        int gapB = Math.abs(avg - values[k]);
-
-        value = (gapA > gapB) ? values[j] : values[k];
-      }
+    int day = (v - b) / (a - b);
+    if ((v - b) % (a - b) != 0) {
+      day++;
     }
 
-    System.out.println(value);
+    System.out.println(day);
   }
-
 }
