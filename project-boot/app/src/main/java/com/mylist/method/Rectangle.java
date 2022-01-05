@@ -26,11 +26,13 @@ public class Rectangle {
   }
 
   public int area() {
-    return length * width;
+    return getLength() * getWidth();
   }
 
   public int perimeter() {
-    return (length + width) * 2;
+    return (getLength() + getWidth()) * 2;
   }
+
+
 
 }
