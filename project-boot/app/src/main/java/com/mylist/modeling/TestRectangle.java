@@ -1,4 +1,4 @@
-package com.mylist.method;
+package com.mylist.modeling;
 
 import java.util.Scanner;
 
