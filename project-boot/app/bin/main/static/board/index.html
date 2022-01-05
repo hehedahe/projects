@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Board</title>
+</head>
+<body>
+<h1>Board List</h1>
+<a href="form.html">새 글</a>
+<table id="x-list-table" border="1" class="table table-striped">
+<thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">제목</th>
+    <th scope="col">작성일</th>
+    <th scope="col">조회</th>
+  </tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+
+<script type="text/javascript">
+  "use strict"
+
+  var tbody = document.querySelector("#x-list-table");
+
+  fetch("/board/list")
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(boardList) {
+      console.log(boardList);
+      for (var i = 0; i < boardList.length; i++) {
+        var tr = document.createElement("tr");
+        tr.setAttribute("data-no", i);
+        var listNo = parseInt(tr.getAttribute("data-no")) + 1;
+        tr.innerHTML = `<th scope="row">${boardList[i].index}</th>
+        <td class="list-title"><a href="view.html?index=${i}">${boardList[i].title}</td>
+        <td>${boardList[i].createdDate}</td>
+        <td>${boardList[i].viewCount}</td>`;
+        tbody.appendChild(tr);
+        console.log(tr);
+      }
+    });
+
+</script>
+
+</body>
+</html>
