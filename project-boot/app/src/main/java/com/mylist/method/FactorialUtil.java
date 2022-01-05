@@ -7,7 +7,7 @@ public class FactorialUtil {
   public static void main(String[] args) {
 
     Scanner keyboard = new Scanner(System.in);
-    System.out.print("Input    = ");
+    System.out.print("Input  = ");
 
     FactorialUtil util = new FactorialUtil();
     System.out.printf("Result = %d\n", util.factorial(keyboard.nextInt()));
